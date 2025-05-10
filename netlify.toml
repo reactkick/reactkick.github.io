@@ -1,1 +1,6 @@
+[[ plugins ]]
+   package = " @netlify/plugin-lighthouse " 
 
+  # isteğe bağlı, lighthouse raporunu sitenizin altındaki bir yola dağıtın 
+  [ plugins . inputs . audits ]
+     output_path = " reports/lighthouse.html "
