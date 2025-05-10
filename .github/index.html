@@ -1,0 +1,24 @@
+[[ eklentiler ]]
+   paketi = " @netlify/plugin-lighthouse "
+
+  # Eklentiyi dağıtımdan önce çalışacak şekilde ayarlayın, minimum eşikler ayarlanmamışsa derleme başarısız olur 
+  [ plugins . inputs ]
+     fail_deploy_on_score_thresholds = " true "
+
+  # Her rapor alanı için minimum eşikleri ayarlayın 
+  [ eklentiler . girdiler . eşikler ]
+     performans = 0,9 
+    erişilebilirlik = 0,7
+
+  # build dizinindeki index.html dışındaki bir HTML dosyasını denetlemek için 
+  [[ plugins . inputs . audits ]]
+     path = " contact.html "
+
+  # build dizininin bir alt yolundaki index.html dışındaki bir HTML dosyasını denetlemek için 
+  [[ plugins . inputs . audits ]]
+     path = " pages/contact.html "
+
+  # denetim için yalnızca yapı dizininin bir alt dizinine hizmet verilecek 
+  # pages/index.html denetlenecek ve bu dizinin dışındaki dosyalara hizmet verilmeyecek 
+  [[ plugins . inputs . audits ]]
+     serveDir = " pages "
